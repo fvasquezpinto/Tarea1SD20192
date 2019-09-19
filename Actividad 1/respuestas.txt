@@ -1,0 +1,7 @@
+09/19/19		11:16:19
+
+Respuestas
+Se ha recibido su peticion: '¡Hola!'
+Se ha recibido su peticion: 'a'
+Se ha recibido su peticion: 'b'
+Se ha recibido su peticion: 'c'
