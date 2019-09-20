@@ -24,7 +24,6 @@ while True:
 
         from_client = data.decode("utf-8") 
         print(from_client)
-        #print(conn.getpeername())
         ip, _ = conn.getpeername()
 
         f = open("log.txt","a")

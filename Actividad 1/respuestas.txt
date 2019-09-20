@@ -1,6 +1,5 @@
-09/20/19aaa		02:36:38
+09/20/19		15:39:29
 Conectado a 127.0.0.1
 
 Respuestas
 Se ha recibido su peticion '¡Hola!'
-Se ha recibido su peticion 'asd'

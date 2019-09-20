@@ -2,7 +2,7 @@ import socket
 import time
 
 f = open("respuestas.txt","w")
-f.write(time.strftime("%x") + "aaa")
+f.write(time.strftime("%x"))
 f.write("\t\t")
 f.write(time.strftime("%X"))
 
@@ -26,10 +26,14 @@ while(True):
 
 	print("Ingrese su solicitud:")
 	msg = input()
-	#print(msg)
+
+	if(msg == "quit()"):
+		print("Cerrando programa...")
+		client.close()
+		break
+
 	client.send(bytes(msg, 'utf-8'))
 	from_server = client.recv(4096)
-	#client.close()
 	print(from_server.decode("utf-8") + "\n")
 	f.write(from_server.decode("utf-8") + "\n")
 
