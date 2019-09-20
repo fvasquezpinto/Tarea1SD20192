@@ -1,7 +1,6 @@
-09/19/19		11:16:19
+09/20/19aaa		02:36:38
+Conectado a 127.0.0.1
 
 Respuestas
-Se ha recibido su peticion: '¡Hola!'
-Se ha recibido su peticion: 'a'
-Se ha recibido su peticion: 'b'
-Se ha recibido su peticion: 'c'
+Se ha recibido su peticion '¡Hola!'
+Se ha recibido su peticion 'asd'

@@ -1,7 +1,5 @@
 import socket
 import time
-import os
-
 
 f = open("log.txt","w")
 f.write(time.strftime("%x"))
@@ -33,7 +31,7 @@ while True:
         f.write(ip + "\t\t" + from_client + "\n")
         f.close()
 
-        conn.send(bytes("Se ha recibido su peticion: '" + from_client + "'", 'utf-8'))
+        conn.send(bytes("Se ha recibido su peticion '" + from_client + "'", 'utf-8'))
     
     conn.close()
     print('client disconnected')
