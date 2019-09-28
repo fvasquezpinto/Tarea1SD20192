@@ -18,12 +18,17 @@ f.close()
 
 while(True):
 
+	print("soy el datanode1")
+
 	from_server = client.recv(4096)
 
 	f = open("datanode1/data.txt","a")
 	f.write("hola")
+	f.close()
+
+	f = open("datanode1/data.txt","a")
 	if (from_server.decode("utf-8") == 'estan vivos'):
-		f.write("llego mensaje")
+		f.write("llego mensaje\n")
 	print(from_server.decode("utf-8") + "\n")
 	f.write(from_server.decode("utf-8") + "\n")
 	f.close()

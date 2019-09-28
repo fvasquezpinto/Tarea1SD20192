@@ -5,7 +5,7 @@ services:
     image: centos
     command: python ./headnode/headnode.py
     ports:
-      - 4000:4000
+      - 5000:5000
       - 6000:6000
       - 7000:7000
       - 8000:8000

@@ -1,3 +1,22 @@
-09/28/19		01:54:29
+09/28/19		14:37:57
 
 IP			Mensaje
+se envio el mensaje a datanode1
+172.22.0.1		¡Hola!
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
+se envio el mensaje a datanode1
