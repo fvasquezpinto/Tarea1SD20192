@@ -1,6 +1,7 @@
 import socket
 import time
 import threading
+import struct
 
 print("Server iniciado")
 f = open("hearbeat_server.txt","w")
@@ -29,9 +30,43 @@ datanode3.listen()
 
 f.close()
 
+message = b'very important data'
+multicast_group = ('224.10.10.10', 10000)
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+sock.settimeout(2)
+ttl = struct.pack('b', 1)
+sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
+
 class Datanodes(threading.Thread):
     def run(self):
+
         while True:
+
+            try:
+
+                # Send data to the multicast group
+                print('sending {!r}'.format(message))
+                sent = sock.sendto(message, multicast_group)
+
+                # Look for responses from all recipients
+                while True:
+                    print('waiting to receive')
+                    try:
+                        data, server = sock.recvfrom(16)
+                    except socket.timeout:
+                        print('timed out, no more responses')
+                        break
+                    else:
+                        print('received {!r} from {}'.format(
+                            data, server))
+
+            finally:
+                print('closing socket')
+                #sock.close()
+
+        time.sleep(5)
+
+'''
             message = 'estan vivos'
             #luego agregar los demas ip
             #multicast_group = (IP_datanode1, 10000)
@@ -42,7 +77,7 @@ class Datanodes(threading.Thread):
             
             time.sleep(1)
             conn1.send(bytes(message, 'utf-8'))
-
+'''
 
 while True:
 
