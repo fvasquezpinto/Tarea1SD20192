@@ -1,0 +1,5 @@
+09/28/19		01:54:29
+Conectado a 127.0.0.1
+
+Respuestas
+Se ha recibido su peticion '¡Hola!'

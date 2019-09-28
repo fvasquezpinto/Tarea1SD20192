@@ -7,7 +7,7 @@ f.write("\t\t")
 f.write(time.strftime("%X"))
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client.connect(('0.0.0.0', 4000))
+client.connect(('0.0.0.0', 5000))
 
 f.write("\nConectado a " + client.getpeername()[0])
 f.write("\n\nRespuestas\n")
