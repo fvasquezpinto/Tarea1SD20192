@@ -14,18 +14,24 @@ f.write("\n\nRespuestas\n")
 
 print("\nConectado a " + client.getpeername()[0] + "\n")
 
-client.send(bytes('¡Hola!', 'utf-8'))
-from_server = client.recv(4096)
-f.write(from_server.decode("utf-8") + "\n")
+#client.send(bytes('¡Hola!', 'utf-8'))
+#from_server = client.recv(4096)
+#f.write(from_server.decode("utf-8") + "\n")
 
 f.close()
 
 f = open("respuestas.txt","a")
+data = range(20)
+contador = 0
 
 while(True):
 
 	print("Ingrese su solicitud:")
-	msg = input()
+	if (contador<20):
+		msg = "data" + str(data[contador])
+		contador+=1
+	else:
+		msg = input()
 
 	if(msg == "quit()"):
 		print("Cerrando programa...")

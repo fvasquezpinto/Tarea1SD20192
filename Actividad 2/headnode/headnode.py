@@ -2,6 +2,7 @@ import socket
 import time
 import threading
 import struct
+import random
 
 print("Server iniciado")
 f = open("hearbeat_server.txt","w")
@@ -9,7 +10,7 @@ f.write(time.strftime("%x"))
 f.write("\t\t")
 f.write(time.strftime("%X"))
 f.write("\n\nIP\t\t\tMensaje\n")
-
+f.close()
 
 serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 serv.bind(('0.0.0.0', 5000))
@@ -28,20 +29,30 @@ datanode3 = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 datanode3.bind(('0.0.0.0', 8000))
 datanode3.listen()
 
-f.close()
+conn, addr = serv.accept()
+conn1, addr1 = datanode1.accept()
+conn2, addr2 = datanode2.accept()
+conn3, addr3 = datanode3.accept()
 
-message = b'very important data'
-multicast_group = ('224.10.10.10', 10000)
+
+
+
+
+'''
+message = b'very'
+multicast_group = ('224.10.10.10', 9001)
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-sock.settimeout(2)
+sock.settimeout(5)
 ttl = struct.pack('b', 1)
 sock.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, ttl)
+'''
 
 class Datanodes(threading.Thread):
     def run(self):
 
         while True:
 
+            '''
             try:
 
                 # Send data to the multicast group
@@ -63,29 +74,49 @@ class Datanodes(threading.Thread):
             finally:
                 print('closing socket')
                 #sock.close()
+            '''
 
-        time.sleep(5)
+            time.sleep(5)
 
-'''
-            message = 'estan vivos'
+
+            message = 'ping'
+            f = open("hearbeat_server.txt","a")
+
+            conn1.send(bytes(message, 'utf-8'))
+            f.write("se envio ping a datanode1\n")
+            print("se envio ping a datanode1")
+
+            from_server = conn1.recv(4096)
+            f.write("se recibio respuesta de datanode1\n")
+            print("se recibio respuesta de datanode1")
+
+            conn2.send(bytes(message, 'utf-8'))
+            f.write("se envio ping a datanode2\n")
+            print("se envio ping a datanode2")
+
+            from_server = conn2.recv(4096)
+            f.write("se recibio respuesta de datanode2\n")
+            print("se recibio respuesta de datanode2")
+
+            conn3.send(bytes(message, 'utf-8'))
+            f.write("se envio ping a datanode3\n")
+            print("se envio ping a datanode3")
+
+            from_server = conn3.recv(4096)
+            f.write("se recibio respuesta de datanode3\n")
+            print("se recibio respuesta de datanode3")
+            f.close()
             #luego agregar los demas ip
             #multicast_group = (IP_datanode1, 10000)
-            f = open("hearbeat_server.txt","a")
-            f.write("se envio el mensaje a datanode1\n")
-            print("se envio el mensaje a datanode1")
-            f.close()
             
-            time.sleep(1)
-            conn1.send(bytes(message, 'utf-8'))
-'''
+f = open("registro_cliente.txt","w")
+f.write("id"+ "\t\t" + "ip_cliente" + "\t\t" + "datanode" + "\n")
+f.close()
 
+contador = 0
 while True:
 
-    conn, addr = serv.accept()
-    
-    conn1, addr1 = datanode1.accept()
-    conn2, addr2 = datanode2.accept()
-    conn3, addr3 = datanode3.accept()
+
 
     thread = Datanodes()
     thread.start()
@@ -103,11 +134,30 @@ while True:
 
         from_client = data.decode("utf-8") 
         print(from_client)
-        ip, _ = conn.getpeername()
 
-        f = open("hearbeat_server.txt","a")
-        f.write(ip + "\t\t" + from_client + "\n")
-        f.close()
+        datanode_elegido = random.randint(1,3)
+        if datanode_elegido == 1:
+            print("se envio los datos a datanode 1")
+            conn1.send(bytes(from_client, 'utf-8'))
+            from_server = conn1.recv(4096)
+            ip_elegido = IP_datanode1
+        elif datanode_elegido == 2:
+            print("se envio los datos a datanode 1")
+            conn2.send(bytes(from_client, 'utf-8'))
+            from_server = conn2.recv(4096)
+            ip_elegido = IP_datanode2
+        else:
+            print("se envio los datos a datanode 1")
+            conn3.send(bytes(from_client, 'utf-8'))
+            from_server = conn3.recv(4096)
+            ip_elegido = IP_datanode3
+
+        print("se va a guardar a regisro cliente")
+        ip, _ = conn.getpeername()
+        file = open("registro_cliente.txt","a")
+        file.write(str(contador) + "\t\t" + ip + "\t\t" + str(datanode_elegido) + "\n")
+        file.close()
+        contador +=1
     
         conn.send(bytes("Se ha recibido su peticion '" + from_client + "'", 'utf-8'))
     

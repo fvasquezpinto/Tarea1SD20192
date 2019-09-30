@@ -4,22 +4,22 @@ import struct
 import sys
 
 f = open("datanode1/data.txt","w")
-f.write(time.strftime("%x"))
-f.write("\t\t")
-f.write(time.strftime("%X"))
+#f.write(time.strftime("%x"))
+#f.write("\t\t")
+#f.write(time.strftime("%X"))
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('0.0.0.0', 6000))
 
-f.write("\nConectado a " + client.getpeername()[0])
-f.write("\n\nRespuestas\n")
+#f.write("\nConectado a " + client.getpeername()[0])
+#f.write("\n\nData\n")
 
 print("\nConectado a " + client.getpeername()[0] + "\n")
 
 f.close()
-
+'''
 multicast_group = '224.10.10.10'
-server_address = ('', 10000)
+server_address = ('', 9001)
 
 # Create the socket
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -44,6 +44,9 @@ while True:
     print('received {} bytes from {}'.format(
         len(data), address))
     print(data)
+    f = open("datanode1/data.txt","a")
+    f.write(data)
+    f.close()
 
     print('sending acknowledgement to', address)
     sock.sendto(b'ack', address)
@@ -56,15 +59,16 @@ while(True):
 
 	from_server = client.recv(4096)
 
-	f = open("datanode1/data.txt","a")
-	f.write("hola")
-	f.close()
+	if (from_server.decode("utf-8")=="ping"):
+		msg = "pong"
+		client.send(bytes(msg, 'utf-8'))
+		print("se ha enviado respuesta a headnode")
+	else:
+		f = open("datanode1/data.txt","a")
+		f.write(from_server.decode("utf-8")+"\n")
+		f.close()
+		print("se ha guardado en data")
+		msg = "ok"
+		client.send(bytes(msg, 'utf-8'))
 
-	f = open("datanode1/data.txt","a")
-	if (from_server.decode("utf-8") == 'estan vivos'):
-		f.write("llego mensaje\n")
-	print(from_server.decode("utf-8") + "\n")
-	f.write(from_server.decode("utf-8") + "\n")
-	f.close()
 
-'''
