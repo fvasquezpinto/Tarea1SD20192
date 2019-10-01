@@ -1,39 +1,45 @@
-09/30/19		05:13:09
+10/01/19		16:06:51
 
 IP			Mensaje
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
-se envio ping a datanode1
-se recibio respuesta de datanode1
-se envio ping a datanode2
-se recibio respuesta de datanode2
-se envio ping a datanode3
-se recibio respuesta de datanode3
+16:07:01: se envio ping a datanode1
+16:07:01: se recibio respuesta de datanode1
+16:07:01: se envio ping a datanode2
+16:07:01: se recibio respuesta de datanode2
+16:07:01: se envio ping a datanode3
+16:07:01: se recibio respuesta de datanode3
+16:07:06: se envio ping a datanode1
+16:07:06: se recibio respuesta de datanode1
+16:07:06: se envio ping a datanode2
+16:07:06: se recibio respuesta de datanode2
+16:07:06: se envio ping a datanode3
+16:07:06: se recibio respuesta de datanode3
+16:07:11: se envio ping a datanode1
+16:07:11: se recibio respuesta de datanode1
+16:07:11: se envio ping a datanode2
+16:07:11: se recibio respuesta de datanode2
+16:07:11: se envio ping a datanode3
+16:07:11: se recibio respuesta de datanode3
+16:07:16: se envio ping a datanode1
+16:07:16: se recibio respuesta de datanode1
+16:07:16: se envio ping a datanode2
+16:07:16: se recibio respuesta de datanode2
+16:07:16: se envio ping a datanode3
+16:07:16: se recibio respuesta de datanode3
+16:07:21: se envio ping a datanode1
+16:07:21: se recibio respuesta de datanode1
+16:07:21: se envio ping a datanode2
+16:07:21: se recibio respuesta de datanode2
+16:07:21: se envio ping a datanode3
+16:07:21: se recibio respuesta de datanode3
+16:07:22: se envio ping a datanode1
+16:07:22: se recibio respuesta de datanode1
+16:07:22: se envio ping a datanode2
+16:07:22: se recibio respuesta de datanode2
+16:07:22: se envio ping a datanode3
+16:07:22: se recibio respuesta de datanode3
+16:07:26: se envio ping a datanode1
+16:07:26: se recibio respuesta de datanode1
+16:07:26: se envio ping a datanode2
+16:07:26: se recibio respuesta de datanode2
+16:07:26: se envio ping a datanode3
+16:07:26: se recibio respuesta de datanode3

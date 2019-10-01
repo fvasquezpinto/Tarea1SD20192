@@ -1,26 +1,15 @@
 import socket
 import time
 
-f = open("respuestas.txt","w")
-f.write(time.strftime("%x"))
-f.write("\t\t")
-f.write(time.strftime("%X"))
-
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client.connect(('0.0.0.0', 5000))
 
-f.write("\nConectado a " + client.getpeername()[0])
-f.write("\n\nRespuestas\n")
-
 print("\nConectado a " + client.getpeername()[0] + "\n")
 
-#client.send(bytes('¡Hola!', 'utf-8'))
-#from_server = client.recv(4096)
-#f.write(from_server.decode("utf-8") + "\n")
-
+f = open("client/registro_cliente.txt","w")
+f.write("id_data" + "\t\t" + "datanode guardado" + "\n")
 f.close()
 
-f = open("respuestas.txt","a")
 data = range(20)
 contador = 0
 
@@ -30,6 +19,7 @@ while(True):
 	if (contador<20):
 		msg = "data" + str(data[contador])
 		contador+=1
+		print(msg)
 	else:
 		msg = input()
 
@@ -40,7 +30,6 @@ while(True):
 
 	client.send(bytes(msg, 'utf-8'))
 	from_server = client.recv(4096)
-	print(from_server.decode("utf-8") + "\n")
-	f.write(from_server.decode("utf-8") + "\n")
-
-f.close()
+	f = open("client/registro_cliente.txt","a")
+	f.write(str(contador) + "\t\t" + from_server.decode("utf-8") + "\n")
+	f.close()
