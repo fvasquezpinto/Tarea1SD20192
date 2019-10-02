@@ -1,8 +1,6 @@
+data0
 data2
 data3
-data6
 data8
-data9
-data12
-data14
-data16
+data10
+data15

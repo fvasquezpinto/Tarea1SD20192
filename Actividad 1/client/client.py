@@ -16,6 +16,7 @@ print("\nConectado a " + client.getpeername()[0] + "\n")
 
 client.send(bytes('¡Hola!', 'utf-8'))
 from_server = client.recv(4096)
+print(from_server.decode("utf-8") + "\n")
 f.write(from_server.decode("utf-8") + "\n")
 
 f.close()
