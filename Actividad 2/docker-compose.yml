@@ -1,0 +1,60 @@
+version: "3"
+services:
+  headnode:
+    build: headnode/
+    image: centos
+    command: python ./headnode/headnode.py
+    environment:
+    - UDPPORT=10000
+    ports:
+      - 5000:5000
+      - 6000:6000
+      - 7000:7000
+      - 8000:8000
+      - 10000:10000/udp
+    volumes:
+      - ./:/headnode/ 
+    stdin_open: true
+    tty: true
+  datanode1:
+    build: datanode1/
+    command: python ./datanode1/datanode1.py
+    network_mode: host
+    image: ubuntu
+    depends_on:
+      - headnode
+    volumes:
+      - ./:/datanode1/
+    stdin_open: true
+    tty: true
+  datanode2:
+    build: datanode2/
+    command: python ./datanode2/datanode2.py
+    network_mode: host
+    image: debian
+    depends_on:
+      - headnode
+    volumes:
+      - ./:/datanode2/
+    stdin_open: true
+    tty: true
+  datanode3:
+    build: datanode3/
+    command: python ./datanode3/datanode3.py
+    network_mode: host
+    depends_on:
+      - headnode
+    volumes:
+      - ./:/datanode3/
+    stdin_open: true
+    tty: true
+  client:
+    build: client/
+    command: python ./client/client.py
+    network_mode: host
+    depends_on:
+      - headnode
+    volumes:
+      - ./:/client/
+    stdin_open: true
+    tty: true

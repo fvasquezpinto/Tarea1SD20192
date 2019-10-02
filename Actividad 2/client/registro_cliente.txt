@@ -1,0 +1,21 @@
+id_data		datanode guardado
+1		datanode3
+2		datanode2
+3		datanode3
+4		datanode3
+5		datanode2
+6		datanode2
+7		datanode1
+8		datanode2
+9		datanode3
+10		datanode1
+11		datanode3
+12		datanode2
+13		datanode1
+14		datanode1
+15		datanode2
+16		datanode3
+17		datanode1
+18		datanode1
+19		datanode2
+20		datanode2

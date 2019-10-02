@@ -1,0 +1,15 @@
+10/02/19		01:54:37
+
+IP			Mensaje
+01:54:43: se envio ping a datanode1
+01:54:43: se recibio respuesta de datanode1
+01:54:43: se envio ping a datanode2
+01:54:43: se recibio respuesta de datanode2
+01:54:43: se envio ping a datanode3
+01:54:43: se recibio respuesta de datanode3
+01:54:48: se envio ping a datanode1
+01:54:48: se recibio respuesta de datanode1
+01:54:48: se envio ping a datanode2
+01:54:48: se recibio respuesta de datanode2
+01:54:48: se envio ping a datanode3
+01:54:48: se recibio respuesta de datanode3
