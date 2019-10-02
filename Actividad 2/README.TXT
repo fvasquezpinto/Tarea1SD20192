@@ -1,9 +1,9 @@
-Notas importantes de la Actividad 1
+Notas importantes de la Actividad 2
 
-1) La ruta del archivo log.txt es: /Tarea1SD20192/Actividad\ 1/log.txt
+1) La ruta del archivo registro_server.txt es: /Tarea1SD20192/Actividad\ 2/headnode/registro_server.txt
 
-2) La ruta del archivo respuestas.txt es: /Tarea1SD20192/Actividad\ 1/respuestas.txt
+2) La ruta del archivo registro_cliente.txt es: /Tarea1SD20192/Actividad\ 2/client/registro_cliente.txt
 
-3) Al ejecutar los comandos "docker-compose build" seguido de "docker-compose up" (en la ruta /Tarea1SD20192/Actividad\ 1/) se levantará tanto el servidor como el cliente; el cliente enviará un saludo al server
+2) La ruta del archivo hearbeat_server.txt es: /Tarea1SD20192/Actividad\ 2/hearbeat_server.txt
 
-4) Para enviar una petición personalizada al servidor se debe ejecutar "docker-compose build" seguido de "docker-compose run client" (en la ruta /Tarea1SD20192/Actividad\ 1/)
+3) Al ejecutar los comandos "docker-compose build" seguido de "docker-compose up" (en la ruta /Tarea1SD20192/Actividad\ 2/) se levantará tanto el headnode como el cliente y los datanodes; el cliente enviará 20 datos al servidor de manera automatica. Estos mensajes pasarán al headnode el cual lo repartirá aleatoriamente a los datanodes (quedando la data en datanodeX/data.txt donde X es el numero del datanode elegido)
