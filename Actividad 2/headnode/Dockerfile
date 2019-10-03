@@ -1,3 +1,3 @@
-FROM python:latest
+FROM centos:latest
 ADD headnode.py /headnode/
 WORKDIR /headnode/
