@@ -4,8 +4,8 @@ services:
     build: headnode/
     image: centos
     command: python ./headnode/headnode.py
-    environment:
-    - UDPPORT=10000
+    networks:
+      - app_net
     ports:
       - 5000:5000
       - 6000:6000
@@ -19,7 +19,8 @@ services:
   datanode1:
     build: datanode1/
     command: python ./datanode1/datanode1.py
-    network_mode: host
+    networks:
+      - app_net
     image: ubuntu
     depends_on:
       - headnode
@@ -30,7 +31,8 @@ services:
   datanode2:
     build: datanode2/
     command: python ./datanode2/datanode2.py
-    network_mode: host
+    networks:
+      - app_net
     image: debian
     depends_on:
       - headnode
@@ -41,7 +43,8 @@ services:
   datanode3:
     build: datanode3/
     command: python ./datanode3/datanode3.py
-    network_mode: host
+    networks:
+      - app_net
     depends_on:
       - headnode
     volumes:
@@ -51,10 +54,18 @@ services:
   client:
     build: client/
     command: python ./client/client.py
-    network_mode: host
+    networks:
+      - app_net
     depends_on:
       - headnode
     volumes:
       - ./:/client/
     stdin_open: true
     tty: true
+networks:
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.238.0/24"
+        - subnet: "2001:3984:3989::/64"
