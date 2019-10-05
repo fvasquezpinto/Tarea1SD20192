@@ -7,3 +7,5 @@ Gabriel Arjona Gálvez
 
 Francisco Vásquez Pinto
 201473568-5
+
+La presentación se llama SD_T1_Arjona_Vásquez.pdf
